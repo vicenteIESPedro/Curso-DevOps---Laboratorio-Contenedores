@@ -31,7 +31,7 @@ Por ejemplo, voy a crear la imagen mi-ubuntu a partir del contenedor<br>
 Obtengo su id con docker ps -a <br> 
 Docker commit id mi-ubuntu
 <br> <br>
-2. DOCKER FILE<br>
+Paso 2. DOCKER FILE<br>
 Un fichero docker permite la creación de imagenes indicando cada uno de los pasos necesarios para obtener la imagen.<br>
 Para automatizar los comandos realizados en el paso 1, definiré el fichero: build/Dockerfile.ubuntu<br><br>
 a) Crear el fichero dockerfile
@@ -52,7 +52,10 @@ e) Comprobación de que curl está instalado<br>
 En la terminal creada, ejecuto curl --version<br><br>
 <img width="526" height="90" alt="paso 2- curl" src="https://github.com/user-attachments/assets/a672ab8b-c87f-44b8-bb01-71ea70af44b9" />
 <br><br>
-Es posible ver las diferentes capas de una imagen concreta usando el comando docker image histoy img<br><br>
+Es posible ver las diferentes capas de una imagen concreta usando el comando<br>
+docker image history img<br><br>
+2. Limpiando imágenes
+
 
 
   
