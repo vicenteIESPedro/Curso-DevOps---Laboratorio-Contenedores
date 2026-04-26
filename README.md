@@ -53,8 +53,16 @@ En la terminal, ejecuto curl --version<br><br>
 <img width="526" height="90" alt="paso 2- curl" src="https://github.com/user-attachments/assets/a672ab8b-c87f-44b8-bb01-71ea70af44b9" />
 <br><br>
 Es posible ver las diferentes capas de una imagen concreta usando el comando<br>
-docker image history img<br><br>
-2. Limpiando imágenes
+docker image history img<br><br><br>
+2. Limpiando imágenes<br>
+Defino el fichero Dockerfile.ubuntu2 en el que sucesivamente voy indicando las diferentes capas, quedando al final el fichero
+<img width="833" height="222" alt="Paso 2 docker 2" src="https://github.com/user-attachments/assets/1292a262-18db-4120-b3d6-73e4830c22e0" />
+<br><br>
+Tras la ejecución sucesivas de docker build (docker build -f build/Dockerfile.ubuntu-2 --tag ubuntu-2 .) tras añadir cada linea, reviso las imagenes existentes
+<img width="616" height="253" alt="paso 2- images" src="https://github.com/user-attachments/assets/38cc6755-f5f0-4592-b454-d35af7b46cf1" />
+<br><br>
+Como se observa, hay una sola imagen ubuntu-2. Esto pasa porque al ejecutar sucesivamente docker build indicando el mismo nombre de imagen, se sobreescribe el fichero generado quedando por tanto la ultima imagen creada. Para que esto no ocurra, se debe definir un nombre distinto a cada construcción, por ejemplo, indicando una etiqueta (V1, V2, ....)
+
 
 
 
