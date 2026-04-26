@@ -2,14 +2,14 @@
 
 1. CREANDO IMAGENES
 Creación de un contenedor basado en Ubuntu y ejecución de comandos en el contenedor
-
-Paso 1 - Creación mediante comando Docker
-- Creación de imagen
-docker run -it ubuntu bash
-      - Docker run Comando docker para iniciar un contenedor
-      - modificador -it Le indico que quiero una sesión interactiva con el contenedor
-      - imagen: ubuntu. Por regla general, debe ser lo último que se indica en el comando docker run
-      - interprete de comando: bash Ya que voy a abrir una sesión interactiva, le indico que interprete
+<br> <br> 
+Paso 1 - Creación mediante comando Docker<br> 
+- Creación de imagen<br> 
+docker run -it ubuntu bash<br> 
+      - Docker run Comando docker para iniciar un contenedor<br> 
+      - modificador -it Le indico que quiero una sesión interactiva con el contenedor<br> 
+      - imagen: ubuntu. Por regla general, debe ser lo último que se indica en el comando docker run<br> 
+      - interprete de comando: bash Ya que voy a abrir una sesión interactiva, le indico que interprete<br> 
 <br><br>  
 - Ejecución de comandos
 Si todo ha ido bien, nos abrirá un promt para ejecutar comandos sobre el contenedor docker.
