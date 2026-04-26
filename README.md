@@ -25,8 +25,8 @@ curl --version
 <br> <br>
 Y cierro el promt con  el comando exit.
 <br> <br> 
-c) Como convertir el contenedor con el estado actual en una imagen.
-Para ello se utiliza el comando docker commit. Por ejemplo, voy a crear la imagen mi-ubuntu a partir del contenedor (obtengo su id con docker ps -a)
+c) Como convertir el contenedor con el estado actual en una imagen.<br> 
+Para ello se utiliza el comando docker commit. Por ejemplo, voy a crear la imagen mi-ubuntu a partir del contenedor (obtengo su id con docker ps -a)<br> 
 Docker commit id mi-ubuntu
 <br> <br> 
 
