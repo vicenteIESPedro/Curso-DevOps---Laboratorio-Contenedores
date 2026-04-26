@@ -22,6 +22,13 @@ apt-get install curl
 Por último, verifico que esta instalada.
 curl --version
 <img width="277" height="34" alt="Paso 1-curl version" src="https://github.com/user-attachments/assets/e2c9795e-bb42-4bfe-8e91-7a4a4d0a1a3f" />
+<br> <br>
+Y cierro el promt con  el comando exit.
+<br> <br> 
+c) Como convertir el contenedor con el estado actual en una imagen.
+Para ello se utiliza el comando docker commit. Por ejemplo, voy a crear la imagen mi-ubuntu a partir del contenedor (obtengo su id con docker ps -a)
+Docker commit id mi-ubuntu
+<br> <br> 
 
 
 
