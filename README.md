@@ -49,9 +49,10 @@ c) Ejecutar un contenedor<br>
 Igual que en el paso 1 pero tomando como imagen la creada anteriormente<br><br>
 docker run --name ubuntu-1 -it mi-ubuntu:v1<br><br>
 e) Comprobación de que curl está instalado<br>
-En la terminal creada, ejecuto curl --version
+En la terminal creada, ejecuto curl --version<br><br>
 <img width="526" height="90" alt="paso 2- curl" src="https://github.com/user-attachments/assets/a672ab8b-c87f-44b8-bb01-71ea70af44b9" />
 <br><br>
+Es posible ver las diferentes capas de una imagen concreta usando el comando docker image histoy img<br><br>
 
 
   
