@@ -32,10 +32,15 @@ Obtengo su id con docker ps -a <br>
 Docker commit id mi-ubuntu
 <br> <br>
 2. DOCKER FILE<br>
-Un fichero docker permite la creación de imagenes indicando cada uno de los pasos necesarios para obtener la imagen.<br> 
-Crearé la carpeta build y dentro defino los ficheros Dockerfile.
-<br> <br> 
-a) Docker file a artir de una imagen
+Un fichero docker permite la creación de imagenes indicando cada uno de los pasos necesarios para obtener la imagen.<br>
+Crearé la carpeta build y dentro definiré los ficheros Dockerfile.
+<br>
+Para automatizar los comandos realizados en el paso 1, definiré el fichero: build/Dockerfile.ubuntu<br><br>
+En primer lugar, creo el fichero dockerfile con el contenido.
+<img width="783" height="237" alt="paso 2- dockerfile" src="https://github.com/user-attachments/assets/73b4828f-a8c3-40dc-b062-102cc760b0f3" />
+<br>
+En segundo lugar, creo la imagen a partir del dichero creado anteriormente. 
+
 
 
 
