@@ -3,8 +3,8 @@
 1. CREANDO IMAGENES
 Creación de un contenedor basado en Ubuntu y ejecución de comandos en el contenedor
 <br> <br> 
-Paso 1 - Creación mediante comando Docker<br> 
-- Creación de imagen<br> 
+Paso 1 - Creación mediante comando Docker<br><br>  
+- Creación de imagen<br><br>  
 docker run -it ubuntu bash<br> 
       - Docker run Comando docker para iniciar un contenedor<br> 
       - modificador -it Le indico que quiero una sesión interactiva con el contenedor<br> 
