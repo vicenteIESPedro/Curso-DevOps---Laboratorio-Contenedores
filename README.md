@@ -38,7 +38,7 @@ a) Crear el fichero dockerfile
 Creo el fichero build/Dockerfile.ubuntu. Dentro indico dos líneas: FROM (de que imagen voy a partir) y RUN (comando a ejecutar en la imagen que se crea)<br>
 <img width="783" height="237" alt="paso 2- dockerfile" src="https://github.com/user-attachments/assets/73b4828f-a8c3-40dc-b062-102cc760b0f3" />
 <br><br>
-b) Creo la imagen a partir del fichero Dockerfile con el siguiente comando<br>
+b) Crear la imagen a partir del fichero Dockerfile con el siguiente comando<br>
 docker build -f build/Dockerfile.ubuntu --tag mi-ubuntu:v1 .<br>
 Donde:<br>
 - Docker build indica que quiero construir una imagen<br>
@@ -49,7 +49,7 @@ c) Ejecutar un contenedor<br>
 Igual que en el paso 1 pero tomando como imagen la creada anteriormente<br><br>
 docker run --name ubuntu-1 -it mi-ubuntu:v1<br><br>
 e) Comprobación de que curl está instalado<br>
-En la terminal creada, ejecuto curl --version<br><br>
+En la terminal, ejecuto curl --version<br><br>
 <img width="526" height="90" alt="paso 2- curl" src="https://github.com/user-attachments/assets/a672ab8b-c87f-44b8-bb01-71ea70af44b9" />
 <br><br>
 Es posible ver las diferentes capas de una imagen concreta usando el comando<br>
