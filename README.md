@@ -33,13 +33,33 @@ Docker commit id mi-ubuntu
 <br> <br>
 2. DOCKER FILE<br>
 Un fichero docker permite la creación de imagenes indicando cada uno de los pasos necesarios para obtener la imagen.<br>
-Crearé la carpeta build y dentro definiré los ficheros Dockerfile.
-<br>
 Para automatizar los comandos realizados en el paso 1, definiré el fichero: build/Dockerfile.ubuntu<br><br>
-En primer lugar, creo el fichero dockerfile con el contenido.
+a) Crear el fichero dockerfile
+Creo el fichero build/Dockerfile.ubuntu. Dentro indico dos líneas: FROM (de que imagen voy a partir) y RUN (comando a ejecutar en la imagen que se crea)<br>
 <img width="783" height="237" alt="paso 2- dockerfile" src="https://github.com/user-attachments/assets/73b4828f-a8c3-40dc-b062-102cc760b0f3" />
-<br>
-En segundo lugar, creo la imagen a partir del dichero creado anteriormente. 
+<br><br>
+b) Creo la imagen a partir del fichero Dockerfile con el siguiente comando<br>
+docker build -f build/Dockerfile.ubuntu --tag mi-ubuntu:v1 .<br>
+Donde:<br>
+- Docker build indica que quiero construir una imagen<br>
+- -f fichero Indica en dichero docker origen. Si se omite, el comando busca un fichero Dockerfile en la carpeta actual<br>
+- --tag nombre_imagen:etiqueta Indica el nombre que tendrá la imagen<br>
+- . Indica el contexto, es decir, la carpeta local que tomará de base en la construcción de la imagen.<br><br>
+c) Ejecutar un contenedor<br>
+Igual que en el paso 1 pero tomando como imagen la creada anteriormente<br><br>
+
+d) Creación de un contenedor a partir de la imagen<br>
+docker run --name ubuntu-1 -it mi-ubuntu:v1<br><br>
+e) Comprobación de que curl está instalado<br>
+En la terminal creada, ejecuto curl --version
+<img width="526" height="90" alt="paso 2- curl" src="https://github.com/user-attachments/assets/a672ab8b-c87f-44b8-bb01-71ea70af44b9" />
+<br><br>
+
+
+  
+  
+
+ 
 
 
 
