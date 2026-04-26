@@ -1,6 +1,6 @@
 # Curso-DevOps---Laboratorio-Contenedores
 
-1. CREANDO IMAGENES
+1. CREANDO IMAGENES<br>
 Creación de un contenedor basado en Ubuntu y ejecución de comandos en el contenedor
 <br> <br> 
 Paso 1 - Creación mediante comando Docker<br> 
