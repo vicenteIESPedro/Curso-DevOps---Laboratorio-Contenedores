@@ -47,8 +47,6 @@ Donde:<br>
 - . Indica el contexto, es decir, la carpeta local que tomará de base en la construcción de la imagen.<br><br>
 c) Ejecutar un contenedor<br>
 Igual que en el paso 1 pero tomando como imagen la creada anteriormente<br><br>
-
-d) Creación de un contenedor a partir de la imagen<br>
 docker run --name ubuntu-1 -it mi-ubuntu:v1<br><br>
 e) Comprobación de que curl está instalado<br>
 En la terminal creada, ejecuto curl --version
