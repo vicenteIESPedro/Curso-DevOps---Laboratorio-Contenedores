@@ -7,9 +7,9 @@ Paso 1 - Creación mediante comando Docker<br>
 a) Creación de imagen<br> 
 docker run -it ubuntu bash<br> <br> 
         - Docker run Comando docker para iniciar un contenedor<br> 
-      - modificador -it Le indico que quiero una sesión interactiva con el contenedor<br> 
-      - imagen: ubuntu. Por regla general, debe ser lo último que se indica en el comando docker run<br> 
-      - interprete de comando: bash Ya que voy a abrir una sesión interactiva, le indico que interprete<br> 
+        - modificador -it Le indico que quiero una sesión interactiva con el contenedor<br> 
+        - imagen: ubuntu. Por regla general, debe ser lo último que se indica en el comando docker run<br> 
+        - interprete de comando: bash Ya que voy a abrir una sesión interactiva, le indico que interprete<br> 
 <br><br>  
 b) Ejecución de comandos
 Si todo ha ido bien, nos abrirá un promt para ejecutar comandos sobre el contenedor docker.
