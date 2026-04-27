@@ -73,7 +73,7 @@ docker run --name mi-postgres -e POSTGRES_USER=vicente -e POSTGRES_PASSWORD=hola
 - -e POSTGRES_USER=vicente -e POSTGRES_PASSWORD=hola Parametros de Postgres para definir el usuario superadministrador
 - --mount source=vol-pg,target=/var/lib/postgresql/18/docker Definición del volumen. El volumen se llama vol-pg. Lo enlazo a la carpeta de data del contenedor
 <br><br>
-b) Apertura de shell en el contendor <br><br>
+b) Apertura de shell en el contenedor <br><br>
 docker exec -it mi-postgres bash
 <br><br>
 c) Una vez en el shell, iniciar el cliente de PostgresSQL psql con creación de la base de datos dbdevops<br><br>
@@ -94,7 +94,7 @@ exit<br><br>
 docker rm -f mi-postgres <br><br>
 f) Creo el nuevo contenedor enlazando el mismo volumen
 docker run --name mi-postgres1 -e POSTGRES_USER=vicente -e POSTGRES_PASSWORD=hola -d --mount source=vol-pg,target=/var/lib/postgresql/18/docker postgres<br><br>
-g) Verifico que existe la base de datos dbdevops y la tabla items que creé en la máquina virtual anterior.<br><br>
+g) Verifico que existe la base de datos dbdevops y la tabla items que creé en la máquina virtual anterior mostrando sus datos.<br><br>
 docker exec -it mi-postgres1 bash<br><br>
 psql -h 127.0.0.1 -U vicente<br><br>
 \c dbdevops<br><br>
