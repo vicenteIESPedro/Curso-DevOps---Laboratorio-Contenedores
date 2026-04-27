@@ -127,7 +127,9 @@ e) Instalar en el contenedor la utilidad ping<br>
 apt-get update && apt-get install -y iputils-ping <br><br>
 f) Hacer ping al otro contenedor (tengo su ip del apartado c, 172.18.0.2)<br>
 ping 172.18.0.2<br><br>
-Y de esta forma compruebo que los contenedores se comunican entre sí
+Y de esta forma compruebo que los contenedores se comunican entre sí<br><br>
+7. RED NONE<br>
+Esta red permite que un contenedor esté completamente aislado del resto. Esto nos va a permitir usar este contenedor para la realización de operaciones sensibles sin peligro de que sea interferido por otros contenedores.
 
 
 
