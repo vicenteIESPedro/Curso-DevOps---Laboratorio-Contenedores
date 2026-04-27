@@ -3,7 +3,7 @@
 1. CREANDO IMAGENES<br>
 Creación de un contenedor basado en Ubuntu y ejecución de comandos en el contenedor
 <br> <br> 
-Paso 1 - Creación mediante comando Docker<br> 
+Paso 1 - Creación mediante comando Docker<br> <br>
 a) Creación de imagen<br><br>  
 docker run -it ubuntu bash<br> <br> 
 - Docker run Comando docker para iniciar un contenedor<br> 
@@ -65,7 +65,7 @@ Como se observa, hay una sola imagen ubuntu-2. Esto pasa porque al ejecutar suce
 <br><br>
 3. VOLUMENES PERSISTENTES<br>
 Un volumen es un espacio que se define en Docker y que puede ser asignado a un contenedor.<br>
-Con esta práctica voy a definir un volumen y asignarlo como zona de almacenamiento de PostGresSQL en una máquina. Crearé una base de datos y una tabla. Posteriormente, borraré el contenedor, usando el volumen en otro contenedor PostGresSQL
+Con esta práctica voy a definir un volumen y asignarlo como zona de almacenamiento de PostGresSQL en una máquina. Crearé una base de datos y una tabla. Posteriormente, borraré el contenedor, usando el volumen en otro contenedor PostGresSQL<br><br>
 
 a) Creación del contenedor con el volumen <br><br>
 docker run --name mi-postgres -e POSTGRES_USER=vicente -e POSTGRES_PASSWORD=hola -d --mount source=vol-pg,target=/var/lib/postgresql/18/docker postgres<br><br>
