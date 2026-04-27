@@ -102,7 +102,10 @@ psql -h 127.0.0.1 -U vicente<br><br>
 select * from items<br><br>
 4. BIND MOUNTS<br>
 Un montaje de tipo bind permite enlazar una carpeta local a un espacio de almacenamiento en el contenedor<br>
-Voy a crear la carpeta web y dentro el archivo index.html con contenido <h1>Hola Docker</h1><br>
+Parto de la carpeta web y dentro el archivo index.html con contenido &lt;h1>Hola Docker&lt;/h1>. Creo el nuevo contenedor enlazando la carpeta web a la carpeta html del contenedor<br><br>
+docker run -d -p 8080:80 --mount type=bind,source=./web,target=/usr/share/nginx/html --name nginx-bind nginx<br><br>
+Al acceder en el navegador a localhost:8080 compruebo que se muestra la página local<br><br>
+Como se ve, la ventaja de BIND MOUNTS es trabajar en un contenedor con una carpeta local. Si cambiamos los archivos locales, automáticamente se ven los resultados en el contenedor al estar directamente conectados a la carpeta  
 
 
   
