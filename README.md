@@ -117,15 +117,15 @@ Los contenedores se conectan por defecto a la red bridge. Es posible crear nuest
 Los pasos para comprobar esto son:<br><br>
 a) Crear mi propia red<br>
 docker network create my-net<br><br>
-b) Añadir un contenedor ubuntu a la red mostrado el promp para que quede a la espera<br>
+b) Añadir un contenedor ubuntu a la red mostrado el prompt para que quede a la espera<br>
 docker run  --name ubuntu-red-1 --network my-net -it ubuntu bash<br><br>
 c) En otro terminal, comprobar la dirección asignada al contenedor anterior<br>
-docker network inspect my-net<br><br><br>
+docker network inspect my-net<br><br>
 d) Iniciar un nuevo contenedor en modo interactivo<br>
 docker run  --name ubuntu-red-2 --network my-net -it ubuntu bash<br><br>
 e) Instalar en el contenedor la utilidad ping<br>
 apt-get update && apt-get install -y iputils-ping <br><br>
-f) Hacer ping al otro contenedor (tendo su ip del apartado c, 172.18.0.2)<br>
+f) Hacer ping al otro contenedor (tengo su ip del apartado c, 172.18.0.2)<br>
 ping 172.18.0.2<br><br>
 Y de esta forma compruebo que los contenedores se comunican entre sí
 
