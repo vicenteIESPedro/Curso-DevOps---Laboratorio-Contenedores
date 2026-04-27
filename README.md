@@ -108,9 +108,9 @@ Al acceder en el navegador a localhost:8080 compruebo que se muestra la página 
 Como se ve, la ventaja de BIND MOUNTS es trabajar en un contenedor con una carpeta local. Si cambiamos los archivos locales, automáticamente se ven los resultados en el contenedor al estar directamente conectado a la carpeta<br><br>
 5. AUDITANDO VOLUMENES<br><br>
 Para obtener información de los volúmenes se utiliza el comando docker volume con diversas variantes.<br><br>
-Ver los volúmenes existentes.
+Ver los volúmenes existentes.<br>
 docker image list<br><br>
-Consultar información de un volumen, incluyendo punto de montaje
+Consultar información de un volumen, incluyendo punto de montaje<br>
 docker image inspect volumen<br><br>
 
 
