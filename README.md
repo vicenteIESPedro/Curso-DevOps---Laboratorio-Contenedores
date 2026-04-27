@@ -62,6 +62,10 @@ Tras la ejecución sucesivas de docker build (docker build -f build/Dockerfile.u
 <img width="616" height="253" alt="paso 2- images" src="https://github.com/user-attachments/assets/38cc6755-f5f0-4592-b454-d35af7b46cf1" />
 <br><br>
 Como se observa, hay una sola imagen ubuntu-2. Esto pasa porque al ejecutar sucesivamente docker build indicando el mismo nombre de imagen, se sobreescribe el fichero generado quedando por tanto la ultima imagen creada. Para que esto no ocurra, se debe definir un nombre distinto a cada construcción, por ejemplo, indicando una etiqueta (V1, V2, ....)
+<br><br>
+3. VOLUMENES PERSISTENTES<br>
+Un volumen es un espacio que se define en Docker y que puede ser aignado a un contenedor.<br>
+Con esta práctica voy a definir un volumen y asignarlo como zona de almacenamiento de PostGresSQL en una máquina. Crearé una base de datos y una tabla. Posteriormente, borraré el contenedor. 
 
 
 
