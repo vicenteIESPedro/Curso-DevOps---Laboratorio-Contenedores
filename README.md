@@ -105,7 +105,15 @@ Un montaje de tipo bind permite enlazar una carpeta local a un espacio de almace
 Parto de la carpeta web y dentro el archivo index.html con contenido &lt;h1>Hola Docker&lt;/h1>. Creo el nuevo contenedor enlazando la carpeta web a la carpeta html del contenedor<br><br>
 docker run -d -p 8080:80 --mount type=bind,source=./web,target=/usr/share/nginx/html --name nginx-bind nginx<br><br>
 Al acceder en el navegador a localhost:8080 compruebo que se muestra la página local<br><br>
-Como se ve, la ventaja de BIND MOUNTS es trabajar en un contenedor con una carpeta local. Si cambiamos los archivos locales, automáticamente se ven los resultados en el contenedor al estar directamente conectado a la carpeta  
+Como se ve, la ventaja de BIND MOUNTS es trabajar en un contenedor con una carpeta local. Si cambiamos los archivos locales, automáticamente se ven los resultados en el contenedor al estar directamente conectado a la carpeta<br><br>
+5. AUDITANDO VOLUMENES<br><br>
+Para obtener información de los volúmenes se utiliza el comando docker volume con diversas variantes.<br><br>
+Ver los volúmenes existentes.
+docker image list<br><br>
+Consultar información de un volumen, incluyendo punto de montaje
+docker image inspect volumen<br><br>
+
+
 
 
   
