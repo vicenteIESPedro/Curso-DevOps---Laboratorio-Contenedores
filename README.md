@@ -64,11 +64,42 @@ Tras la ejecución sucesivas de docker build (docker build -f build/Dockerfile.u
 Como se observa, hay una sola imagen ubuntu-2. Esto pasa porque al ejecutar sucesivamente docker build indicando el mismo nombre de imagen, se sobreescribe el fichero generado quedando por tanto la ultima imagen creada. Para que esto no ocurra, se debe definir un nombre distinto a cada construcción, por ejemplo, indicando una etiqueta (V1, V2, ....)
 <br><br>
 3. VOLUMENES PERSISTENTES<br>
-Un volumen es un espacio que se define en Docker y que puede ser aignado a un contenedor.<br>
-Con esta práctica voy a definir un volumen y asignarlo como zona de almacenamiento de PostGresSQL en una máquina. Crearé una base de datos y una tabla. Posteriormente, borraré el contenedor. 
+Un volumen es un espacio que se define en Docker y que puede ser asignado a un contenedor.<br>
+Con esta práctica voy a definir un volumen y asignarlo como zona de almacenamiento de PostGresSQL en una máquina. Crearé una base de datos y una tabla. Posteriormente, borraré el contenedor, usando el volumen en otro contenedor PostGresSQL
 
-
-
+a) Creación del contenedor con el volumen <br><br>
+docker run --name mi-postgres -e POSTGRES_USER=vicente -e POSTGRES_PASSWORD=hola -d --mount source=vol-pg,target=/var/lib/postgresql/18/docker postgres<br><br>
+- --name mi-postgres. Definición del nombre del contenedor
+- -e POSTGRES_USER=vicente -e POSTGRES_PASSWORD=hola Parametros de Postgres para definir el usuario superadministrador
+- --mount source=vol-pg,target=/var/lib/postgresql/18/docker Definición del volumen. El volumen se llama vol-pg. Lo enlazo a la carpeta de data del contenedor
+<br><br>
+b) Apertura de shell en el contendor <br><br>
+docker exec -it mi-postgres bash
+<br><br>
+c) Una vez en el shell, iniciar el cliente de PostgresSQL psql con creación de la base de datos dbdevops<br><br>
+psql -h 127.0.0.1 -U vicente -d dbdevops<br><br>
+d) En psql, la tabla, insertar registros, mostrar el contenido de la tabla y cerrar psql<br><br>
+CREATE TABLE items (<br>
+ id SERIAL PRIMARY KEY,<br>
+ name TEXT<br>
+);<br><br>
+INSERT INTO items(name) VALUES ('item1');<br>
+INSERT INTO items(name) VALUES ('item2');<br><br>
+select * from items;<br><br>
+exit<br><br>
+e) Me aseguro que se han guardado los datos en disco parando el servicio y borro el contenedor
+<br><br>
+service postgresql stop<br><br>
+exit<br><br>
+docker rm -f mi-postgres <br><br>
+f) Creo el nuevo contenedor enlazando el mismo volumen
+docker run --name mi-postgres1 -e POSTGRES_USER=vicente -e POSTGRES_PASSWORD=hola -d --mount source=vol-pg,target=/var/lib/postgresql/18/docker postgres<br><br>
+g) Verifico que exsite la Base de datos dbdevops y la tabla items que creé en la máquina virtual.
+docker exec -it mi-postgres1 bash<br><br>
+psql -h 127.0.0.1 -U vicente<br><br>
+\c dbdevops<br><br>
+\dt<br><br>
+select * from items<br><br>
 
   
   
