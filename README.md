@@ -78,7 +78,7 @@ docker exec -it mi-postgres bash
 <br><br>
 c) Una vez en el shell, iniciar el cliente de PostgresSQL psql con creación de la base de datos dbdevops<br><br>
 psql -h 127.0.0.1 -U vicente -d dbdevops<br><br>
-d) En psql, la tabla, insertar registros, mostrar el contenido de la tabla y cerrar psql<br><br>
+d) En psql, crear la tabla, insertar registros, mostrar el contenido de la tabla y cerrar psql<br><br>
 CREATE TABLE items (<br>
  id SERIAL PRIMARY KEY,<br>
  name TEXT<br>
@@ -94,7 +94,7 @@ exit<br><br>
 docker rm -f mi-postgres <br><br>
 f) Creo el nuevo contenedor enlazando el mismo volumen
 docker run --name mi-postgres1 -e POSTGRES_USER=vicente -e POSTGRES_PASSWORD=hola -d --mount source=vol-pg,target=/var/lib/postgresql/18/docker postgres<br><br>
-g) Verifico que exsite la Base de datos dbdevops y la tabla items que creé en la máquina virtual.
+g) Verifico que existe la base de datos dbdevops y la tabla items que creé en la máquina virtual anterior.<br><br>
 docker exec -it mi-postgres1 bash<br><br>
 psql -h 127.0.0.1 -U vicente<br><br>
 \c dbdevops<br><br>
