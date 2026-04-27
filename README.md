@@ -100,6 +100,10 @@ psql -h 127.0.0.1 -U vicente<br><br>
 \c dbdevops<br><br>
 \dt<br><br>
 select * from items<br><br>
+4. BIND MOUNTS<br>
+Un montaje de tipo bind permite enlazar una carpeta local a un espacio de almacenamiento en el contenedor<br>
+Voy a crear la carpeta web y dentro el archivo index.html con contenido <h1>Hola Docker</h1><br>
+
 
   
   
