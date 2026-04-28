@@ -129,7 +129,25 @@ f) Hacer ping al otro contenedor (tengo su ip del apartado c, 172.18.0.2)<br>
 ping 172.18.0.2<br><br>
 Y de esta forma compruebo que los contenedores se comunican entre sí<br><br>
 7. RED NONE<br>
-Esta red permite que un contenedor esté completamente aislado del resto. Esto nos va a permitir usar este contenedor para la realización de operaciones sensibles sin peligro de que sea interferido por otros contenedores.
+Esta red permite que un contenedor esté completamente aislado del resto. Esto nos va a permitir usar este contenedor para la realización de operaciones sensibles sin peligro de que sea interferido por otros contenedores.<br><br>
+8.MULTI-NETWORK<br>
+Es posible conectar un contenedor a varias redes.
+Para demostrarlo, voy a definir dos redes, conectar un contenedor a una de las redes y posteriormente conectarlo a la segunda red. Lo pasos son <br><br>
+a) Creo las redes<br>
+docker network create secure-zone<br>
+docker network create public-zone<br><br>
+b) Crear un contenendor nginx-multinet conectandolo a la red public-zone<br>
+docker run -d --name nginx-multinet --network public-zone -p 8080:80 nginx<br><br>
+c) Verifico que no hay ningun contenedor asignado a la red secure-zone<br>
+docker network inspect secure-zone<br><br>
+d) Realizo un enlace del contenedor a la otra red<br>
+docker network connect secure-zone nginx-multinet<br><br>
+e) Verifico de nuevo los contenedores en la red secure, comprobando que ya aparece el contenedor nginx-multinet<br>
+docker network inspect secure-zone<br><br>
+
+
+
+
 
 
 
