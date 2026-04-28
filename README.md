@@ -130,7 +130,7 @@ ping 172.18.0.2<br><br>
 Y de esta forma compruebo que los contenedores se comunican entre sí<br><br>
 7. RED NONE<br>
 Esta red permite que un contenedor esté completamente aislado del resto. Esto nos va a permitir usar este contenedor para la realización de operaciones sensibles sin peligro de que sea interferido por otros contenedores.<br><br>
-8.MULTI-NETWORK<br>
+8. MULTI-NETWORK<br>
 Es posible conectar un contenedor a varias redes.
 Para demostrarlo, voy a definir dos redes, conectar un contenedor a una de las redes y posteriormente conectarlo a la segunda red. Lo pasos son <br><br>
 a) Creo las redes<br>
