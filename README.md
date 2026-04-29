@@ -147,30 +147,30 @@ docker network inspect secure-zone<br><br>
 9. DOCKER COMPOSE (compartiendo contenido).<br>
 Dockercompose es una utilidad de docker mediante la que defines un "proyecto" para lanzar contenedores como un todo, coordinando los mismos y estableciendo toda la configuración y dependencias de la misma.<br><br>
 Para resolver esto, he definido el siguiente fichero dockercompose.yml<br><br>
-services:
-  #defines el servicio de escritura
-  escritura:
-    #usas la imagen ubuntu
-    image: ubuntu
-    #nombre del contenedor
-    container_name: escritura_contenedor
-    #enlazas el volumen a la carpeta /app/logs
-    volumes:
-      - vol_com:/app/logs
-    # ejecutas un shell para que escriba cada 30
-    # segundos la fecha actual
-    command: >
-      sh -c "while true; do
-      echo $(date) >> /app/logs/timestamp.log;
-      sleep 30;
-      done"
+services:<br>
+  #defines el servicio de escritura<br>
+  escritura:<br>
+    #usas la imagen ubuntu<br>
+    image: ubuntu<br>
+    #nombre del contenedor<br>
+    container_name: escritura_contenedor<br>
+    #enlazas el volumen a la carpeta /app/logs<br>
+    volumes:<br>
+      - vol_com:/app/logs<br>
+    # ejecutas un shell para que escriba cada 30<br>
+    # segundos la fecha actual<br>
+    command: ><br>
+      sh -c "while true; do<br>
+      echo $(date) >> /app/logs/timestamp.log;<br>
+      sleep 30;<br>
+      done"<br>
 
-  #defines el servicio de lectura
-  lectura:
-    # usas la imagen ubuntu
-    image: ubuntu
-    #defines el nombre del contenedor
-    container_name: lectura_contenedor
+  #defines el servicio de lectura<br>
+  lectura:<br>
+    # usas la imagen ubuntu<br>
+    image: ubuntu<br>
+    #defines el nombre del contenedor<br>
+    container_name: lectura_contenedor<br>
     #enlazas el mismo volumen a la carpeta del contenedor en modo
     # solo lectura (ro)
     volumes:
