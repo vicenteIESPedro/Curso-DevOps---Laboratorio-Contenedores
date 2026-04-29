@@ -145,49 +145,15 @@ docker network connect secure-zone nginx-multinet<br><br>
 e) Verifico de nuevo los contenedores en la red secure, comprobando que ya aparece el contenedor nginx-multinet<br>
 docker network inspect secure-zone<br><br>
 9. DOCKER COMPOSE (compartiendo contenido).<br>
-Dockercompose es una utilidad de docker mediante la que defines un "proyecto" para lanzar contenedores como un todo, coordinando los mismos y estableciendo toda la configuración y dependencias de la misma.<br><br>
-Para resolver esto, he definido el siguiente fichero dockercompose.yml<br><br>
-services:<br>
-  #defines el servicio de escritura<br>
-  escritura:<br>
-    #usas la imagen ubuntu<br>
-    image: ubuntu<br>
-    #nombre del contenedor<br>
-    container_name: escritura_contenedor<br>
-    #enlazas el volumen a la carpeta /app/logs<br>
-    volumes:<br>
-      - vol_com:/app/logs<br>
-    # ejecutas un shell para que escriba cada 30<br>
-    # segundos la fecha actual<br>
-    command: ><br>
-      sh -c "while true; do<br>
-      echo $(date) >> /app/logs/timestamp.log;<br>
-      sleep 30;<br>
-      done"<br>
+Dockercompose es una utilidad de docker mediante la que defines un "proyecto" para lanzar contenedores como un todo, coordinando los mismos y estableciendo toda la configuración y dependencias de los mismos.<br><br>
+Para resolver esto, he definido el fichero dockercompose.yml (pueden encontrarlo en el repositorio)<br>
+Arranco el Dockercompose con el siguiente comando:<br><br>
+docker compose -f .\compose\docker-compose.yml up<br>
+Donde -f me permite indicar el archivo y up indica a docker que lo levante.<br><br>
+El resultado de la ejecución es:<br>
+<img width="733" height="214" alt="Paso 9 captura" src="https://github.com/user-attachments/assets/c0cf9189-ad3c-4484-93bd-0f7ade275583" /><br><br>
 
-  #defines el servicio de lectura<br>
-  lectura:<br>
-    # usas la imagen ubuntu<br>
-    image: ubuntu<br>
-    #defines el nombre del contenedor<br>
-    container_name: lectura_contenedor<br>
-    #enlazas el mismo volumen a la carpeta del contenedor en modo
-    # solo lectura (ro)
-    volumes:
-      - vol_com:/app/logs:ro 
-    #ejecutas comando para que muestre las primeras
-    #lineas del fichero que crea el servicio de escritura
-    command: >
-      sh -c "tail -f /app/logs/timestamp.log"
-    #haces que el servicio de lectura se ejecute si está
-    #ejecutando el de escritura
-    depends_on:
-      - escritura
 
-#defines los volúmenes
-volumes:
-  vol_com:
-<br>
 
 
 
