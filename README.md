@@ -144,6 +144,51 @@ d) Realizo un enlace del contenedor a la otra red<br>
 docker network connect secure-zone nginx-multinet<br><br>
 e) Verifico de nuevo los contenedores en la red secure, comprobando que ya aparece el contenedor nginx-multinet<br>
 docker network inspect secure-zone<br><br>
+9. DOCKER COMPOSE (compartiendo contenido).<br>
+Dockercompose es una utilidad de docker mediante la que defines un "proyecto" para lanzar contenedores como un todo, coordinando los mismos y estableciendo toda la configuración y dependencias de la misma.<br><br>
+Para resolver esto, he definido el siguiente fichero dockercompose.yml<br><br>
+services:
+  #defines el servicio de escritura
+  escritura:
+    #usas la imagen ubuntu
+    image: ubuntu
+    #nombre del contenedor
+    container_name: escritura_contenedor
+    #enlazas el volumen a la carpeta /app/logs
+    volumes:
+      - vol_com:/app/logs
+    # ejecutas un shell para que escriba cada 30
+    # segundos la fecha actual
+    command: >
+      sh -c "while true; do
+      echo $(date) >> /app/logs/timestamp.log;
+      sleep 30;
+      done"
+
+  #defines el servicio de lectura
+  lectura:
+    # usas la imagen ubuntu
+    image: ubuntu
+    #defines el nombre del contenedor
+    container_name: lectura_contenedor
+    #enlazas el mismo volumen a la carpeta del contenedor en modo
+    # solo lectura (ro)
+    volumes:
+      - vol_com:/app/logs:ro 
+    #ejecutas comando para que muestre las primeras
+    #lineas del fichero que crea el servicio de escritura
+    command: >
+      sh -c "tail -f /app/logs/timestamp.log"
+    #haces que el servicio de lectura se ejecute si está
+    #ejecutando el de escritura
+    depends_on:
+      - escritura
+
+#defines los volúmenes
+volumes:
+  vol_com:
+<br>
+
 
 
 
